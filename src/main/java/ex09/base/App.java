@@ -32,6 +32,35 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        
+
+        int ftPerGal = 350;
+
+        System.out.println("What is the length of the ceiling?");
+        int length = in.nextInt();
+
+        System.out.println("What is the width of the ceiling?");
+        int width = in.nextInt();
+
+        int ceilingArea = width * length;
+
+        if (ceilingArea < ftPerGal) {
+            System.out.println("You will need to purchase 1 gallon of paint to cover "+ ceilingArea +" square feet.");
+            System.out.println("Remember, you can’t buy a partial gallon of paint. You must " +
+                    "round up to the next whole gallon.");
+        }
+
+        else if (ceilingArea % ftPerGal == 0) {
+            System.out.println("You will need to purchase "+(ceilingArea / ftPerGal)+" gallons of paint to cover "
+                    + ceilingArea +" square feet.");
+             }
+            else{
+                 System.out.printf("You will need to purchase %d gallons of paint to cover ",
+                    (ceilingArea / ftPerGal) + 1);
+                 System.out.println(ceilingArea +" square feet.");
+                 System.out.println("Remember, you can’t buy a partial gallon of paint. You must " +
+                    "round up to the next whole gallon.");
+            }
+
+
     }
 }
